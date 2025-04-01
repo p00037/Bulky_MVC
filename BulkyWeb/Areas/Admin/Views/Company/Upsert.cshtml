@@ -4,7 +4,7 @@
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
     <div class="row">
         <div class="col-12 text-center">
-                <h2 class="text-white py-2"> @(Model.Id!=0?"Update":"Create") Company</h2>
+                <h2 class="text-white py-2"> 会社の@(Model.Id != 0 ? "修正" : "新規作成") </h2>
         </div>
     </div>
     </div>
@@ -53,16 +53,16 @@
                             <div class="col-6 col-md-3">
                                 @if (Model.Id != 0)
                                 {
-                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                    <button type="submit" class="btn btn-primary form-control">編集</button>
                                 }
                                 else
                                 {
-                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                    <button type="submit" class="btn btn-primary form-control">作成</button>
                                 }
                             </div>
                             <div class="col-6 col-md-3">
                                 <a asp-controller="Company" asp-action="Index" class="btn btn-outline-primary border  form-control">
-                                    Back to List
+                                    一覧に戻る
                                 </a>
                             </div>
                         </div>

@@ -59,7 +59,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 }
                 
                 _unitOfWork.Save();
-                TempData["success"] = "Company created successfully";
+                TempData["success"] = "正常に保存しました。";
                 return RedirectToAction("Index");
             }
             else
@@ -86,13 +86,13 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             var CompanyToBeDeleted = _unitOfWork.Company.Get(u => u.Id == id);
             if (CompanyToBeDeleted == null)
             {
-                return Json(new { success = false, message = "Error while deleting" });
+                return Json(new { success = false, message = "削除中にエラーが発生しました。" });
             }
 
             _unitOfWork.Company.Remove(CompanyToBeDeleted);
             _unitOfWork.Save();
 
-            return Json(new { success = true, message = "Delete Successful" });
+            return Json(new { success = true, message = "削除が完了しました。" });
         }
 
         #endregion
