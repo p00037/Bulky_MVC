@@ -81,47 +81,48 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "メールアドレスは必須です。")]
+            [EmailAddress(ErrorMessage = "有効なメールアドレスを入力してください。")]
+            [Display(Name = "メールアドレス")]
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "パスワードは必須です。")]
+            [StringLength(100, ErrorMessage = "{0}は{2}文字以上、{1}文字以下で入力してください。", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "パスワード")]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "パスワード（確認）")]
+            [Compare("Password", ErrorMessage = "パスワードと確認用パスワードが一致しません。")]
             public string ConfirmPassword { get; set; }
-
 
             public string? Role { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "氏名は必須です。")]
+            [Display(Name = "氏名")]
             public string Name { get; set; }
+
+            [Display(Name = "住所（番地）")]
             public string? StreetAddress { get; set; }
+
+            [Display(Name = "市区町村")]
             public string? City { get; set; }
+
+            [Display(Name = "都道府県")]
             public string? State { get; set; }
+
+            [Display(Name = "郵便番号")]
             public string? PostalCode { get; set; }
+
+            [Display(Name = "電話番号")]
             public string? PhoneNumber { get; set; }
+
+            [Display(Name = "会社ID")]
             public int? CompanyId { get; set; }
+
             [ValidateNever]
             public IEnumerable<SelectListItem> CompanyList { get; set; }
 
