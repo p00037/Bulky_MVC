@@ -6,6 +6,9 @@ $(document).ready(function () {
 
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
+        language: {
+            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/ja.json"
+        },
         "ajax": { url: '/admin/company/getall' },
         "columns": [
             { "data": "name", "width": "15%" },
