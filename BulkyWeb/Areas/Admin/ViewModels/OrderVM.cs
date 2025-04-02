@@ -1,0 +1,10 @@
+﻿using BulkyBook.Models;
+
+namespace BulkyBookWeb.Areas.Admin.ViewModels
+{
+    public class OrderVM
+    {
+        public OrderHeader OrderHeader { get; set; }
+        public IEnumerable<OrderDetail> OrderDetail { get; set; }
+    }
+}
